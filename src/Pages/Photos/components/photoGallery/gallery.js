@@ -5,7 +5,7 @@ import photoPage from '../../backend/backend'
 export default function Gallery(props){
   const [currentPage, setCurrentPage] = useState(0)
   const [currentGlobalItem, setCurrentGlobalItem]  = useState(0)
-  const pageRange = 100
+  const pageRange = 100;
   const [isFullScreen, setIsFullScreen] = useState(null)
   const [isSelecting, setIsSelecting] = useState(false)
   const [selectedItems, setSelectedItems] = useState([])
