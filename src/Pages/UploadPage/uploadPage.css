@@ -1,0 +1,93 @@
+.uploadForm button{
+  background-color: green;
+  border: none;
+  font-size: 15px;
+  padding: 3px 7px 3px 7px;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.filename-container{
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+.progress{
+  display: block;
+  width: 90%;
+  height: 18px;
+  margin: auto;
+}
+
+.upload-block{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  width: 60%;
+  margin: 10px auto 0px auto;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  animation: opac 500ms ease-in-out;
+  border: 1px solid #999;
+  border-radius: 7px;
+}
+.progress-bar{
+  height: 100%;
+}
+
+.progress-bar.error{
+  background-color: red;
+  width: 100% !important;
+  transition: all 300ms ease-in-out;
+}
+
+.upload-block.closedBlock{
+  opacity: 0;
+  animation: reverseopac 500ms ease-in-out;
+}
+
+#progressContainer{
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1025px) {  /*TABLETS*/
+  .upload-block{
+    width: 70%;
+    padding: 5px;
+  }
+  .filename-container h5{
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 3000px) {  /*DESKTOPS*/
+  .upload-block{
+    width: 45%;
+    padding: 7px;
+  }
+  .filename-container h5{
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {  /*MOBILES*/
+  .upload-block{
+    width: 98%;
+    padding: 5px;
+  }
+  .filename-container{
+    text-align: center;
+  }
+  .filename-container h5{
+    font-size: 15px;
+    margin-bottom: 0px;
+  }
+  .progress{
+    margin-left: 15px;
+  }
+}

@@ -1,0 +1,103 @@
+body{
+  overflow: hidden !important;
+}
+.viewer-container{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #090909;
+  /*transition: all 450ms ease-in-out;*/
+}
+
+.img-container{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  z-index: 1;
+}
+
+.img-container.prev{
+  left: -100vw;
+  /*transition: left 450ms ease-in-out;*/
+}
+
+.img-container.current{
+  left: 0px;
+  /*transition: left 450ms ease-in-out;*/
+}
+.img-container.next{
+  left: 100vw;
+  /*transition: left 450ms ease-in-out;*/
+}
+
+.viewer-container .image{
+  position: absolute;
+  display: block;
+  height: 100vh;   /**/
+  max-width: 100vw;
+  object-fit: contain;
+  object-position: center center !important;
+}
+
+@keyframes slide{
+  from{
+    top: -1000px;
+    left: 0;
+    opacity: 0.2;
+  }
+  to{
+    top: 0px;
+    left: 0;
+    opacity: 1;
+  }
+}
+
+.viewer-container.opened{
+  top: 0px;
+  animation: slide 450ms ease-in-out;
+}
+
+.viewer-container.slideUp{
+  top: -110vh !important;
+  opacity: 0;
+  transition: all 450ms ease-in-out !important;
+  /*animation: reverseslide 450ms ease-in-out;*/
+}
+.viewer-container.cancelVertical{
+  top: 0px !important;
+  opacity: 1 !important;
+  transition: all 450ms ease-in-out;
+}
+.viewer-container.slideDown{
+  top: 100% !important;
+  opacity: 0;
+  transition: all 450ms ease-in-out !important;
+}
+
+
+.img-container.left-slide-current{
+  left: -100%;
+  transition: left 300ms ease-out;
+}
+.img-container.left-slide-next{
+  left: 0px;
+  transition: left 300ms ease-out;
+}
+.img-container.right-slide-current{
+  left: 100%;
+  transition: left 300ms ease-out;
+}
+.img-container.right-slide-prev{
+  left: 0px;
+  transition: left 300ms ease-out;
+}

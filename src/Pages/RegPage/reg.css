@@ -1,0 +1,16 @@
+.auth-window{
+  display: block;
+  width: 40%;
+  margin: 20px auto 0px auto;
+}
+.inner input{
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 20px;
+  padding: 5px;
+}
+.inner button{
+  font-size: 20px;
+  padding: 5px;
+}

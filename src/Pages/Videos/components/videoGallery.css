@@ -1,0 +1,14 @@
+.video-slider{
+  top: -100%;
+  background-color: rgba(75, 75, 75, 0);
+  transition: all 450ms ease-out;
+  z-index: 3;
+}
+.video-slider.active{
+  top: 0px;
+  transition: all 450ms ease-out;
+}
+.video-slider.darken{
+  background-color: rgba(75, 75, 75, 0.7);
+  transition: background-color 300ms ease-in-out;
+}

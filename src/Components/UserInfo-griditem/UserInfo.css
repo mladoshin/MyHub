@@ -1,0 +1,74 @@
+.avatar{
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 2px solid #aaa;
+  margin-top: 10px;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  transition: 1000ms;
+}
+
+.btn{
+  display: inline-block;
+  width: 45%;
+  font-size: 25px;
+  color: #00c851;
+  background-color: transparent;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  outline: none;
+  transition: 800ms;
+}
+
+.btn:hover{
+  color: #fafafa;
+  background-color: #00c851;
+  transition: 800ms;
+}
+
+.UserInfo h3{
+  text-align: left;
+  font-size: 18px;
+}
+
+.avatar-container{
+  grid-column: 1/3;
+  grid-row: 1/5;
+  padding-bottom: 100% !important;
+  height: 0px;
+}
+
+.UserInfo{
+  grid-column: 3/6;
+  grid-row: 2/5;
+}
+
+.user-info{
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+  grid-column: 2/12
+}
+
+.main-user-info{
+  grid-column: 3/9;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+
+}
+.main-user-info h2{
+  text-align: left;
+}
+.main-user-info h3{
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+}

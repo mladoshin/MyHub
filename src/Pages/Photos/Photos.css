@@ -1,0 +1,145 @@
+.App {
+  text-align: center;
+}
+
+body{
+  overflow-x: hidden;
+  overflow-y: scroll !important;
+}
+
+.photo-wrapper button{
+  background-color: green;
+  border: none;
+  font-size: 15px;
+  padding: 3px 7px 3px 7px;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.photo-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /*grid-auto-rows: 20vh;*/
+  margin-top: 20px;
+  background-color: #333;
+}
+
+.image-container .image{
+  position: absolute;
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.image-container{
+  position: relative;
+  overflow: hidden;
+  border-radius: 0px;
+  transition: all 250ms;
+  height: 0px;
+  padding-bottom: 100%;
+}
+.image-container:hover{
+  border-radius: 7px;
+  transform: scale(1.02);
+  transition: all 450ms;
+  z-index: 1;
+}
+
+.meta-container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 0px;
+  top: 0px;
+  opacity: 0;
+  color: #fff;
+  transition: opacity 450ms;
+}
+.meta-container h4{
+  user-select: none;
+}
+
+.meta-container:hover{
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(75, 75, 75, 0.5);
+  transition: opacity 450ms;
+}
+
+@keyframes reverseopac{
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}
+
+@keyframes opac{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.pageControlContainer{
+  padding: 10px 0px 10px 0px;
+}
+.info-btn{
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  background-color: #aaa !important;
+  color: #fff;
+}
+.image-container.selected{
+  border: 3px solid blue;
+}
+
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {  /*TABLETS*/
+    .photo-grid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .photo-wrapper{
+      margin-top: 0px !important;
+      padding: 10px 5px 0px 5px !important;
+    }
+    .photo-grid{
+      margin-top: 15px;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 3000px) {  /*DESKTOPS*/
+  .photo-grid{
+      grid-template-columns: repeat(5, 1fr);
+  }
+  .photo-wrapper{
+    margin-top: 0px !important;
+    padding: 20px 10px 0px 10px !important;
+  }
+  .photo-grid{
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {  /*MOBILES*/
+  .photo-grid{
+      grid-template-columns: repeat(3, 1fr);
+      background-color: #fff;
+  }
+
+  .photo-wrapper{
+    margin-top: 0px !important;
+    padding: 10px 0px 0px 0px !important;
+  }
+
+  .photo-grid{
+    margin-top: 10px;
+  }
+}
