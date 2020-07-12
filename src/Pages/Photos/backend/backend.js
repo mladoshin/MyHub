@@ -97,7 +97,7 @@ class photoPage{
   }
 
   handleSelectPhotos(setSelectedItems, selectedItems, currentPage, pageRange, target, index){
-    if (target.parentNode.classList.contains("selected")){
+    if (selectedItems.indexOf(index)+1){
       var arr=[...selectedItems]
       const indx = arr.indexOf(index)
       arr.splice(indx, 1)
@@ -107,19 +107,21 @@ class photoPage{
     }
   }
 
-  renderSelectedItems(photoItems, currentPage, pageRange, selectedItems){
-    photoItems.slice(currentPage*pageRange, currentPage*pageRange+pageRange).forEach((item, i) => {
-      const id = "image-container"+i
-      const div = document.getElementById(id)
-      div.classList.remove("selected")
-    });
-    console.log(selectedItems)
-    selectedItems.forEach((item, i) => {
-      const localIndx = item-(currentPage*pageRange)
-      const id = "image-container"+localIndx
-      const div = document.getElementById(id)
-      div.classList.add("selected")
-    });
+  renderSelectedItems(selectedItems, index){
+    const cell = document.getElementById("meta-container"+index)
+    if (selectedItems.indexOf(index)+1){
+      try{
+        cell.classList.add("selected")
+      }catch{
+
+      }
+    }else{
+      try{
+        cell.classList.remove("selected")
+      }catch{
+
+      }
+    }
   }
 
   loadPhotos(loadPhotoItems, setPostIDs){

@@ -24,7 +24,7 @@ export default function Gallery(props){
   useEffect(()=>{
     //applying styles to the selected items
     console.log(selectedItems)
-    photoPage.renderSelectedItems(props.photos, currentPage, pageRange, selectedItems)
+    //photoPage.renderSelectedItems(props.photos, currentPage, pageRange, selectedItems)
   }, [selectedItems])
 
   const selectingComponent = isSelecting ? (

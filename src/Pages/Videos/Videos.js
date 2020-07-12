@@ -29,13 +29,6 @@ function Videos(props){
   }, [globalCurrentItem])
 
   useEffect(()=>{
-    console.log(isFirebaseInit)
-    if (isFirebaseInit===true){
-      //alert("videos loaded!")
-    }
-  })
-
-  useEffect(()=>{
     //resetting the state after changing
     if (!isSelecting){
       setSelectedItems([])
@@ -46,11 +39,6 @@ function Videos(props){
     //applying styles to the selected items
     videoPage.renderSelectedItems(props.videos, selectedItems)
   }, [selectedItems])
-
-  useEffect(()=>{
-    window.onload = ()=>console.log("Loaded")
-    document.addEventListener('readystatechange', () => console.log(document.readyState));
-  })
 
   function scrollToVid(indx){
     const id = "poster-outter-wrapper"+indx
@@ -109,32 +97,37 @@ function Videos(props){
         </div>
       )
   })
+
+  const selectingComponent = isSelecting ? (
+    <div>
+      <button className="btn-select" onClick={()=>{
+        setSelectedItems([])
+        setIsSelecting(false)}
+      }>Exit Selecting</button>
+      <button className="btn-select" onClick={()=>{
+        videoPage.handleDeleteFiles(setIsSelecting, selectedItems, postIDs, props.videos)}
+      }>Delete Files</button>
+    </div>
+  )
+  :
+  (
+    <button className="btn-select" onClick={()=>{
+      setIsSelecting(true)}
+    }>Select Videos</button>
+  )
+
   return(
     <div className="App">
       <NavBar model={model} folder="video"/>
       <div className="content-wrapper" style={{display: "block"}}>
         {model!=="all" ? <h1>Folder: {model}</h1> : <h1>All videos</h1>}
-        {isSelecting ?
-          <div>
-            <button onClick={()=>{
-              setSelectedItems([])
-              setIsSelecting(false)}
-            }>Exit Selecting</button>
-            <button onClick={()=>{
-              videoPage.handleDeleteFiles(setIsSelecting, selectedItems, postIDs, props.videos)}
-            }>Delete Files</button>
-          </div>
-          :
-          <button onClick={()=>{
-            setIsSelecting(true)}
-          }>Select Videos</button>
-        }
-
-
+        {selectingComponent}
         {isPlaying===false ? null : <VideoGallery setIsPlaying={setIsPlaying} videos={props.videos} setGlobalCurrentItem={setGlobalCurrentItem} isPlaying={isPlaying}/>}
+
         <div id="grid" className="video-grid">
           {video}
         </div>
+
       </div>
     </div>
   );

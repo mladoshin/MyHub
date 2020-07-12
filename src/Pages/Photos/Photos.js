@@ -38,7 +38,8 @@ function Photos(props) {
 
   useEffect(()=>{
     //applying styles to the selected items
-    photoPage.renderSelectedItems(props.photos, currentPage, pageRange, selectedItems)
+    //photoPage.renderSelectedItems(props.photos, currentPage, pageRange, selectedItems)
+    console.log(selectedItems)
   }, [selectedItems])
 
   useEffect(()=>{
@@ -107,13 +108,16 @@ function Photos(props) {
   const images = props.photos.slice(currentPage*pageRange, currentPage*pageRange+pageRange).map((item, index)=>{
     const date = new Date(item.date).toLocaleDateString();
     const time = new Date(item.date).toLocaleTimeString()
-
+    photoPage.renderSelectedItems(selectedItems, index)
       return(
         <div id={"image-container"+index} className="image-container" key={index} onClick={(e)=>handleClick(e.target, index, date, time)}>
           <img className="image" id={"picture"+index} src={item.url} loading="lazy" alt="image"/>
-          <div className="meta-container">
+          <div className="meta-container" id={"meta-container"+index}>
             <h4>{item.name}</h4>
             <button className="info-btn">Info</button>
+            <svg viewBox="0 0 16 16" className="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
           </div>
         </div>
       )

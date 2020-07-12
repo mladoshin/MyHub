@@ -38,6 +38,7 @@ body{
   position: relative;
   overflow: hidden;
   border-radius: 0px;
+  border: 1px solid rgba(0, 0, 0, 0);
   transition: all 250ms;
   height: 0px;
   padding-bottom: 100%;
@@ -59,6 +60,34 @@ body{
   color: #fff;
   transition: opacity 450ms;
 }
+
+.meta-container svg{
+  display: none;
+}
+
+.meta-container.selected svg{
+  display: block;
+  width: 40px;
+}
+
+.meta-container.selected{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important;
+  background-color: rgba(50, 57, 131, 0.7) !important;
+  transition: background-color 300ms ease-in-out;
+}
+.meta-container.selected h4{
+  position: absolute;
+  top: 5px;
+  font-size: 15px;
+}
+
+.meta-container.selected button{
+  display: none;
+}
+
 .meta-container h4{
   user-select: none;
 }
@@ -100,6 +129,7 @@ body{
 }
 .image-container.selected{
   border: 3px solid blue;
+  transition: all 250ms !important;
 }
 
 

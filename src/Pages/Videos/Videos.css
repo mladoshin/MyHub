@@ -60,6 +60,15 @@
   z-index: 1;
   border: none !important;
 }
+.btn-select{
+  background-color: green;
+  border: none;
+  font-size: 15px;
+  padding: 3px 7px 3px 7px;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+}
 
 @media screen and (min-width: 767px) and (max-width: 1024px) {  /*TABLETS*/
 
