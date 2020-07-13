@@ -95,7 +95,7 @@ function Photos(props) {
     }else if(!isSelecting){
       setIsFullScreen(index) //open fullscreen view
     }else{
-      console.log("selected!")
+      console.log(index)
       photoPage.handleSelectPhotos(setSelectedItems, selectedItems, currentPage, pageRange, target, index) //selecting files if the isSelected is true
     }
   }
@@ -108,7 +108,7 @@ function Photos(props) {
   const images = props.photos.slice(currentPage*pageRange, currentPage*pageRange+pageRange).map((item, index)=>{
     const date = new Date(item.date).toLocaleDateString();
     const time = new Date(item.date).toLocaleTimeString()
-    photoPage.renderSelectedItems(selectedItems, index)
+    photoPage.renderSelectedItems(selectedItems, index, currentPage, pageRange)
       return(
         <div id={"image-container"+index} className="image-container" key={index} onClick={(e)=>handleClick(e.target, index, date, time)}>
           <img className="image" id={"picture"+index} src={item.url} loading="lazy" alt="image"/>
@@ -147,7 +147,7 @@ function Photos(props) {
         setIsSelecting(false)}
       }>Exit Selecting</button>
       <button onClick={()=>{
-        photoPage.handleDeleteFiles(setIsSelecting, selectedItems, postIDs, props.photos)}
+        photoPage.handleDeleteFiles(setIsSelecting, selectedItems, postIDs, props.photos, currentPage, pageRange)}
       }>Delete Files</button>
     </div>
   )

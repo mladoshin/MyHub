@@ -35,10 +35,9 @@ class photoPage{
 
   }
 
-  handleDeleteFiles(setIsSelecting, selectedItems, postIDs, photoItems){
+  handleDeleteFiles(setIsSelecting, selectedItems, postIDs, photoItems, currentPage, pageRange){
     console.log(selectedItems)
     selectedItems.forEach((item, i) => {
-      console.log(postIDs[item])
       this.deleteUrl(postIDs[item])
       this.deleteUserFile(photoItems[item].name)
     });
@@ -97,7 +96,7 @@ class photoPage{
   }
 
   handleSelectPhotos(setSelectedItems, selectedItems, currentPage, pageRange, target, index){
-    if (selectedItems.indexOf(index)+1){
+    if (selectedItems.indexOf( (currentPage*pageRange)+index)+1){
       var arr=[...selectedItems]
       const indx = arr.indexOf(index)
       arr.splice(indx, 1)
@@ -107,9 +106,10 @@ class photoPage{
     }
   }
 
-  renderSelectedItems(selectedItems, index){
+  renderSelectedItems(selectedItems, index, currentPage, pageRange){
+    console.log(index)
     const cell = document.getElementById("meta-container"+index)
-    if (selectedItems.indexOf(index)+1){
+    if (selectedItems.indexOf((currentPage*pageRange)+index)+1){
       try{
         cell.classList.add("selected")
       }catch{
@@ -134,7 +134,7 @@ class photoPage{
       try{
         //uploading all post ids to the state
         var identificators = Object.keys(snapshot.val())
-        setPostIDs(identificators)
+        setPostIDs(identificators.reverse())
       }catch (error){
         console.log(error.message)
       }
